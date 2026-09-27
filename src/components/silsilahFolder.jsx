@@ -4,7 +4,10 @@ function getNama(node) {
   return node.nama || node.name || "";
 }
 function getTgl(node) {
-  return node.tglLahir || node.tgl || "";
+  const t1 = node.tglLahir || node.tgl || "";
+  const t2 = node.tglLahir2 || node.tgl2 || node.tglLahirIstri || "";
+  if (t1 && t2) return `${t1} & ${t2}`;
+  return t1 || t2 || "";
 }
 function getAnak(node) {
   return node.anak || node.children || [];
