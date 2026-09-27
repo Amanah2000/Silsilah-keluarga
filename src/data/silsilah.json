@@ -1,0 +1,63 @@
+{
+  "name": "Masduki + Nurhidayati",
+  "tgl": "01-01-1960",
+  "foto": "/foto/nurhidayati.jpg",
+  "foto2": "/foto/masduki.jpg",
+  "children": [
+    {
+      "name": "Wahyudi + Khalimatus Sa'diyah",
+      "tgl": "15-06-1985",
+      "foto": "/foto/wahyudi.jpg",
+      "foto2": "/foto/khalimatus.jpg",
+      "children": [
+        {
+          "name": "Aditya Shufi Mubarok + Asfiana",
+          "tgl": "10-02-2005",
+          "foto": "/foto/aditya.jpg",
+          "foto2": "/foto/fia.jpg",
+          "children": [
+            { "name": "Azalia Nada Hibatulla", "tgl": "12-03-2022" },
+            { "name": "Ahmad Romadlon", "tgl": "05-07-2023" },
+            { "name": "Muh. Hafidz", "tgl": "18-09-2024" },
+            { "name": "Moh. Husain", "tgl": "20-11-2025" }
+          ]
+        },
+        {
+          "name": "Churotul Aini + Fuad Amrozi",
+          "tgl": "22-08-2007",
+          "foto": "/foto/aini.jpg",
+          "foto2": "/foto/fuad.jpg",
+
+          "children": [
+            { "name": "Umar", "tgl": "01-01-2010" },
+            { "name": "Fatimah", "tgl": "02-01-2010" }
+          ]
+        },
+        {
+          "name": "Muhammad Ja'far Shodiq + Virdayani",
+          "ttl": "14-04-2009",
+          "foto": "/foto/mamad.jpg",
+          "foto2": "/foto/virda.jpg",
+          "children": []
+        },
+        {
+          "name": "Ahmad Mujahid Alhata'ki",
+          "ttl": "30-12-2011",
+          "foto": "/foto/mujahid.jpg",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Rochayanik + Awet Setiawan",
+      "tgl": "10-10-1988",
+      "foto": "/foto/awet.jpg",
+      "foto2": "/foto/rochayanik.jpg",
+
+      "children": [
+        { "name": "Abidzar", "tgl": "05-05-2015" },
+        { "name": "Azar", "tgl": "06-06-2017" }
+      ]
+    }
+  ]
+}
