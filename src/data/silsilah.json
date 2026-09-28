@@ -24,14 +24,14 @@
           ]
         },
         {
-          "name": "Churotul Aini + Fuad Amrozi",
-          "tgl": "22-08-2007",
-          "foto": "/foto/aini.jpg",
-          "foto2": "/foto/fuad.jpg",
-
+          "name": "Fuad Amrousi + Churotul Aini",
+          "tgl": "07-10-1085",
+          "tgl2": "16-05-1993",
+          "foto": "/foto/fuad.jpg",
+          "foto2": "/foto/aini.jpg",
           "children": [
-            { "name": "Umar", "tgl": "01-01-2010" },
-            { "name": "Fatimah", "tgl": "02-01-2010" }
+            { "name": "Umar", "tgl": "04-06-2019" },
+            { "name": "Fatimah", "tgl": "31-07-2020" }
           ]
         },
         {
@@ -50,12 +50,11 @@
       ]
     },
     {
-      "name": "Rochayanik + Awet Setiawan",
+      "name": " Awet Setiawan + Rochayanik",
       "tgl": "31-01-1969",
       "tgl2": "08-05-1970",
       "foto": "/foto/awet.jpg",
       "foto2": "/foto/rochayanik.jpg",
-
       "children": [
         { "name": "Abiyyi Pratama Husada", "tgl": "16-06-1999", "foto": "/foto/abi.jpg" },
         { "name": "A Zaki Fauzan Madistra", "tgl": "13-01-2005", "foto": "/foto/zaki.jpg" }
