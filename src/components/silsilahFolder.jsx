@@ -1,61 +1,63 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-function filterData(list, searchTerm) {
-  if (!searchTerm) return list;
-  const lower = searchTerm.toLowerCase();
-  return list.filter((item) => {
-    const nama = (item.nama || item.name || "").toLowerCase();
-    if (nama.includes(lower)) return true;
-    const anak = item.anak || item.children || [];
-    return filterData(anak, searchTerm).length > 0;
-  });
-}
+const filterData = (list, term) => {
+  if (!term) return list;
+  return list.filter((n) => JSON.stringify(n).toLowerCase().includes(term.toLowerCase()));
+};
 
-function Item({ node, depth, searchTerm, onFotoClick }) {
-  const [isOpen, setIsOpen] = useState(true);
-  const nama = node.nama || node.name || "";
-  const tgl = node.tgl || node.tanggal || "";
-  const anak = node.anak || node.children || [];
-  const anakTampil = anak;
+function Node({ node, isLast, depth, onFotoClick }) {
+  const [open, setOpen] = useState(true);
+  const hasChild = node.children && node.children.length > 0;
+  const isFolder = node.type === "family" || hasChild || (node.label && node.label.includes("+"));
 
   return (
-    <div style={{ marginLeft: depth === 0 ? 0 : 10 }}>
-      <div
-        onClick={() => anak.length > 0 && setIsOpen(!isOpen)}
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: 8,
-          padding: "8px 12px",
-          borderRadius: 12,
-          background: "#1e293b",
-          color: "white",
-          cursor: anak.length > 0 ? "pointer" : "default",
-          marginBottom: 6,
-          marginTop: 4,
-          zIndex: 1,
-        }}
-      >
-        <span>{anak.length > 0 ? (isOpen ? "📂" : "📁") : "👤"}</span>
-        <span style={{ fontWeight: 600 }}>{nama}</span>
-        <span style={{ fontSize: 10, opacity: 0.7 }}>{tgl}</span>
-      </div>
-
-      {isOpen && (
+    <div style={{ position: "relative", paddingLeft: "24px" }}>
+      {/* GARIS VERTIKAL lurus ke bawah - kalau bukan anak terakhir */}
+      {!isLast && (
         <div
           style={{
-            borderLeft: "2px dashed #64748b",
-            marginLeft: 14,
-            paddingLeft: 10,
-            marginTop: 6,
+            position: "absolute",
+            left: "8px",
+            top: "0",
+            bottom: "-8px",
+            borderLeft: "1.5px solid #94a3b8",
           }}
+        />
+      )}
+
+      {/* GARIS HORIZONTAL dari vertical ke folder */}
+      <div
+        style={{
+          position: "absolute",
+          left: "8px",
+          top: "14px",
+          width: "16px",
+          borderTop: "1.5px solid #94a3b8",
+        }}
+      />
+
+      {/* ICON + NAMA */}
+      <div style={{ display: "flex", alignItems: "center", gap: "6px", padding: "4px 0" }}>
+        <span onClick={() => hasChild && setOpen(!open)} style={{ cursor: "pointer" }}>
+          {isFolder ? "📁" : "👤"}
+        </span>
+        <span
+          onClick={() => onFotoClick && onFotoClick(node)}
+          style={{ cursor: "pointer", color: "#475569" }}
         >
-          {anakTampil?.map((child, i) => (
-            <Item
-              key={i}
+          {node.label || node.name}
+        </span>
+      </div>
+
+      {/* ANAK-ANAK */}
+      {hasChild && open && (
+        <div>
+          {node.children.map((child, idx) => (
+            <Node
+              key={idx}
               node={child}
+              isLast={idx === node.children.length - 1}
               depth={depth + 1}
-              searchTerm={searchTerm}
               onFotoClick={onFotoClick}
             />
           ))}
@@ -66,16 +68,33 @@ function Item({ node, depth, searchTerm, onFotoClick }) {
 }
 
 export default function SilsilahFolder({ data, searchTerm }) {
-  const [selected, setSelected] = useState(null);
   const list = Array.isArray(data) ? data : [data];
   const filtered = filterData(list, searchTerm);
 
   return (
-    <div>
-      {filtered.map((node, i) => (
-        <Item key={i} node={node} depth={0} searchTerm={searchTerm} onFotoClick={setSelected} />
+    <div style={{ background: "white", padding: "20px", borderRadius: "16px" }}>
+      {filtered.map((root, i) => (
+        <div key={i}>
+          <div style={{ display: "flex", gap: "6px", fontWeight: "600", paddingBottom: "4px" }}>
+            <span>📁</span>
+            <span>{root.label || root.name}</span>
+          </div>
+          <div style={{ paddingLeft: "0" }}>
+            {root.children?.map((child, idx) => (
+              <Node
+                key={idx}
+                node={child}
+                isLast={idx === root.children.length - 1}
+                depth={1}
+                onFotoClick={() => {}}
+              />
+            ))}
+          </div>
+        </div>
       ))}
+      <div style={{ marginTop: "16px", fontSize: "11px", textAlign: "center", color: "#94a3b8" }}>
+        Klik folder buka/tutup • Foto taruh di folder public/foto
+      </div>
     </div>
   );
 }
-c;
