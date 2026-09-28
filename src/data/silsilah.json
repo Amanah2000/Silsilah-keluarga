@@ -1,8 +1,8 @@
 {
   "name": "Masduki + Nurhidayati",
   "tgl": "01-01-1960",
-  "foto": "/foto/nurhidayati.jpg",
-  "foto2": "/foto/masduki.jpg",
+  "foto": "/foto/masduki.jpg",
+  "foto2": "/foto/nurhidayati.jpg",
   "children": [
     {
       "name": "Wahyudi + Khalimatus Sa'diyah",
@@ -42,7 +42,7 @@
           "children": []
         },
         {
-          "name": "Ahmad Mujahid Alhata'ki",
+          "name": "Ahmad Mujahid Alhataki",
           "ttl": "30-12-2011",
           "foto": "/foto/mujahid.jpg",
           "children": []
@@ -51,13 +51,14 @@
     },
     {
       "name": "Rochayanik + Awet Setiawan",
-      "tgl": "10-10-1988",
+      "tgl": "31-04-1969",
+      "tgl2": "08-05-1970",
       "foto": "/foto/awet.jpg",
       "foto2": "/foto/rochayanik.jpg",
 
       "children": [
-        { "name": "Abidzar", "tgl": "05-05-2015" },
-        { "name": "Azar", "tgl": "06-06-2017" }
+        { "name": "Abiyyi Pratama Husada", "tgl": "16-06-1999", "foto": "/foto/abi.jpg" },
+        { "name": "A Zaki Fauzan Madistra", "tgl": "13-01-2005", "foto": "/foto/zaki.jpg" }
       ]
     }
   ]

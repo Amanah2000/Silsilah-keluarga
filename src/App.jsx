@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SilsilahFolder from "./components/silsilahFolder.jsx";
+
 import data from "./data/silsilah.json";
 
 export default function App() {
